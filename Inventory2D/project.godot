@@ -27,6 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="inventory"
+run/main_scene="res://Scenes/InventoryContainer.tscn"
 config/icon="res://icon.png"
 
 [display]
