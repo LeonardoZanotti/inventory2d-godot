@@ -20,6 +20,7 @@ func get_drag_data(position: Vector2):
 		var drag_preview = TextureRect.new()
 		drag_preview.texture = item.texture
 		set_drag_preview(drag_preview)
+		inventory.drag_data = data
 		return data
 	
 func can_drop_data(position: Vector2, data) -> bool:
@@ -31,3 +32,4 @@ func drop_data(position: Vector2, data) -> void:
 	print(my_item_index, data.item_index)
 	inventory.swap_items(my_item_index, data.item_index)
 	inventory.set_item(my_item_index, data.item)
+	inventory.drag_data = null
