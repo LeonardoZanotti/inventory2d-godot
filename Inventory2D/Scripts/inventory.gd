@@ -29,3 +29,12 @@ func remove_item(item_index):
 	items[item_index] = null;
 	emit_signal("item_changed", [item_index])
 	return previousItem
+
+func make_items_unique():
+	var unique_items = []
+	for item in items:
+		if item is Item:
+			unique_items.append(item.duplicate())
+		else:
+			unique_items.append(null)
+	items = unique_items

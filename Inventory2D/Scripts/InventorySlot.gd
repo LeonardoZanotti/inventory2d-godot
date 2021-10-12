@@ -3,12 +3,15 @@ extends CenterContainer
 var inventory = preload("res://Resources/Inventory.tres")
 
 onready var itemTexture = $ItemTexture
+onready var itemAmountLabel = $ItemTexture/ItemAmountLabel
 
 func display_item(item):
 	if item is Item:
 		itemTexture.texture = item.texture
+		itemAmountLabel.text = str(item.amount)
 	else:
 		itemTexture.texture = load("res://Assets/EmptyInventorySlot.png")
+		itemAmountLabel.text = ""
 
 func get_drag_data(position: Vector2):
 	var item_index = get_index()
@@ -29,7 +32,10 @@ func can_drop_data(position: Vector2, data) -> bool:
 func drop_data(position: Vector2, data) -> void:
 	var my_item_index = get_index()
 	var my_item = inventory.items[my_item_index]
-	print(my_item_index, data.item_index)
-	inventory.swap_items(my_item_index, data.item_index)
-	inventory.set_item(my_item_index, data.item)
+	if my_item is Item and my_item.name == data.item.name:
+		my_item.amount += data.item.amount
+		inventory.emit_signal("item_changed", [my_item_index])
+	else:
+		inventory.swap_items(my_item_index, data.item_index)
+		inventory.set_item(my_item_index, data.item)
 	inventory.drag_data = null

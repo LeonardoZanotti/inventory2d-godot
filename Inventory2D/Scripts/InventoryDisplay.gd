@@ -4,6 +4,7 @@ var inventory = preload("res://Resources/Inventory.tres")
 
 func _ready():
 	inventory.connect("item_changed", self, "_on_item_changed")
+	inventory.make_items_unique()
 	update_inventory_display()
 
 func update_inventory_display():
