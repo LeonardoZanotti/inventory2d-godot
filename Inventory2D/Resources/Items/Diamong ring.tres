@@ -7,3 +7,4 @@
 script = ExtResource( 2 )
 name = "Diamong ring"
 texture = ExtResource( 1 )
+stackable = true

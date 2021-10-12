@@ -7,3 +7,4 @@
 script = ExtResource( 2 )
 name = "Sword"
 texture = ExtResource( 1 )
+stackable = false

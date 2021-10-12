@@ -32,7 +32,7 @@ func can_drop_data(position: Vector2, data) -> bool:
 func drop_data(position: Vector2, data) -> void:
 	var my_item_index = get_index()
 	var my_item = inventory.items[my_item_index]
-	if my_item is Item and my_item.name == data.item.name:
+	if my_item is Item and my_item.name == data.item.name and my_item.stackable:
 		my_item.amount += data.item.amount
 		inventory.emit_signal("item_changed", [my_item_index])
 	else:

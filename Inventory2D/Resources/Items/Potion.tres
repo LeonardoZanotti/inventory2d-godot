@@ -7,3 +7,4 @@
 script = ExtResource( 2 )
 name = "Potion"
 texture = ExtResource( 1 )
+stackable = true
