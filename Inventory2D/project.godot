@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Scripts/item.gd"
+} ]
+_global_script_class_icons={
+"Item": ""
+}
+
 [application]
 
 config/name="inventory"
